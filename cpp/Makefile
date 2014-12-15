@@ -23,7 +23,6 @@ OBJS += $(CPP_SRCS:.cpp=.o)
 DLACN1 = dlacn1.a
 EXPOMV = shared/expomv.a
 EXPOCL = opencl/expocl.a
-MCTRAJ = mctraj/mctraj.a
 
 PSO_DIR = pso
 PSO = $(PSO_DIR)/libpso.a
@@ -44,7 +43,6 @@ clean:
 distclean:
 	make clean;
 	cd pso; make distclean;
-	cd mctraj; make distclean;
 	cd opencl; make distclean;
 	cd shared; make distclean;
 
@@ -61,9 +59,6 @@ $(EXPOCL): opencl/*.c
 
 $(PSO): $(PSO_DIR)/*.h $(PSO_DIR)/*.cpp
 	cd pso; make; cd ..;
-
-$(MCTRAJ): mctraj/*.h mctraj/*.cpp
-	cd mctraj; make mctraj.a
 
 $(SUBPLEX):
 	cd $(SUBPLEX_DIR); make subplex.a; cd ..;
@@ -130,14 +125,6 @@ dream-shifts: dream-shifts.cpp gelman_rubin.o expoTree.o expoTreeSIR.o $(EXPOMV)
 dream_mpi: dream.cpp gelman_rubin.o expoTree.o expoTreeSIR.o $(EXPOMV) \
 	Forest.h Tree.h Tree.cpp
 	$(MPICPP) -DUSE_MPI $(CFLAGS) -o $@ $^ -lgsl $(LDFLAGS) $(MPILDFLAGS)
-
-dream_pf: dream.cpp gelman_rubin.o expoTree.o expoTreeSIR.o $(EXPOMV) \
-	Forest.h Tree.h Tree.cpp $(MCTRAJ)
-	$(CPP) -DPF -fopenmp $(CFLAGS) -o $@ $^ -lgsl $(LDFLAGS)
-
-dream_pf_mpi: dream.cpp gelman_rubin.o expoTree.o expoTreeSIR.o $(EXPOMV) \
-	Forest.h Tree.h Tree.cpp $(MCTRAJ)
-	$(MPICPP) -DUSE_MPI -DPF $(CFLAGS) -o $@ $^ -lgsl $(LDFLAGS) $(MPILDFLAGS)
 
 testGelman: testGelman.cpp gelman_rubin.o
 	$(CPP) $(CFLAGS) -o $@ $^ -lgsl $(LDFLAGS)
