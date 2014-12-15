@@ -1,0 +1,10 @@
+Rpkg/build/*
+cpp/obj/*
+*.o
+*.a
+expoTree.Rcheck
+Make.inc
+*.so
+Rpkg.Rcheck
+*.dSYM
+.DS_Store

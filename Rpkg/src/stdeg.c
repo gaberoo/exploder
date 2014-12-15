@@ -1,0 +1,1 @@
+../../cpp/shared/stdeg.c

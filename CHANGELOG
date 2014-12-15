@@ -1,0 +1,15 @@
+1.4.1
+- BD skyline C implementation
+
+1.4.0
+- Parameter shifts (skyline)
+
+1.3.0
+- SIR likelihood calculations (feasable, but slow)
+
+1.2.1
+- User-defined functions for R
+
+1.2.0
+- User-defined lambda, mu and psi functions (C/C++ only)
+

@@ -1,0 +1,17 @@
+2014-12-11
+
+  * sim.epi.R: Can simulate SIR epidemics
+
+2013-12-08 Gabriel E Leventhal <gabriel@leventhal.ch>
+
+Version 1.1
+Too many changes to list. Attempt at the most important ones
+
+  * src/expmv.c: The inf_norm function no uses hardcoded unrolled loops.
+  * src/expmv.c: LAPACK daxpy used.
+
+2012-01-30 Gabriel E Leventhal <gabriel@leventhal.ch>
+
+  * src/*: Replaced GNU INFINITY macro with R_PosInf/R_NegInf.
+	* DESCRIPTION (Version): 0.8.1
+
