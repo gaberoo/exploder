@@ -3,7 +3,6 @@ cpp/obj/*
 *.o
 *.a
 expoTree.Rcheck
-Make.inc
 *.so
 Rpkg.Rcheck
 *.dSYM
